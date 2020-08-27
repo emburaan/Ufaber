@@ -1,0 +1,179 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.ufab.github.global.enumeration.State" />
+        <variable
+            name="viewModel"
+            type="com.ufab.github.ui.dashboard.homefragment.HomeFragmentViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_cloud"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/githubexplorer"
+            android:background="@color/blue_basic"
+            app:titleTextColor="@color/white_basic"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <!--<androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layout"
+                android:background="@drawable/bg_screen"
+                tools:context=".ui.dashboard.homefragment.HomeFragment">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="@dimen/dimen_60"
+                    android:layout_height="@dimen/dimen_100"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/home_profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/dimen_4"
+                        android:src="@drawable/profile"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/color_primary_dark"
+                        app:civ_border_width="@dimen/dimen_1"
+                        app:civ_shadow_radius="@dimen/dimen_2" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_menu"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="May 27,2020"
+                    android:textColor="@color/gray_charcoal"
+                    android:textSize="@dimen/font_18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/exo2semibold"
+                    android:text="Have a nice day,\nWendy"
+                    android:textColor="@color/gray_cloud"
+                    android:textSize="@dimen/font_25sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                &lt;!&ndash;<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipeRefreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:onRefreshListener="@{() -> viewModel.onRefresh()}"
+                    app:refreshing="@{viewModel.isRefreshing()}">&ndash;&gt;
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:id="@+id/linearLayout_home"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                    &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_0"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        app:data="@{viewModel.homedata}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2"
+                         />&ndash;&gt;
+                &lt;!&ndash;</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                <com.mvvm.ui.view.CustomProgressBar
+                    android:id="@+id/progressNewsContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{(viewModel.isEmptyLoading()) ? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/swipeRefreshLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/swipeRefreshLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textNewsError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:textColor="@color/color_primary_dark"
+                    android:onClick="@{(view) ->viewModel.onRetry()}"
+                    android:text="@string/global_error_retry_message"
+                    android:visibility="@{(viewModel.isEmptyError()) ? View.VISIBLE : View.INVISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/progressNewsContent"
+                    app:layout_constraintEnd_toEndOf="@+id/progressNewsContent"
+                    app:layout_constraintStart_toStartOf="@+id/progressNewsContent"
+                    app:layout_constraintTop_toTopOf="@+id/progressNewsContent" />&ndash;&gt;
+
+                &lt;!&ndash;<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/linearLayout_home"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />&ndash;&gt;
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="10"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_homepage"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
