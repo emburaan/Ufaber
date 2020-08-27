@@ -1,6 +1,7 @@
 package com.ufab.github.data.retrofit
 
 import com.ufab.github.data.model.home.HomeModel
+import com.ufab.github.data.model.home.HomeModel2
 import com.ufab.github.data.model.news.News
 import com.ufab.github.data.model.user.ProfileResponse
 import io.reactivex.Single
@@ -24,7 +25,10 @@ interface APIClient {
     @GET("medamine/paginate/paginate.php")
     fun getNews(@Query("p") page: Int, @Query("pageSize") pageSize: Int): Single<List<News>>
 
-    @GET("v1/home")
-    fun gethome():Single<List<HomeModel>>
+   /* @GET("v1/home")
+    fun gethome():Single<List<HomeModel>>*/
+
+    @GET("repositories")
+    fun gethome():Single<HomeModel2>
 
 }

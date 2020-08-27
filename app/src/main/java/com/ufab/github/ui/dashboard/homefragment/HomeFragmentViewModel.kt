@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
 import com.ufab.github.base.BaseAndroidViewModel
 import com.ufab.github.data.model.home.HomeModel
+import com.ufab.github.data.model.home.HomeModel2
 import com.ufab.github.data.repository.abs.HomeRepository
 import com.ufab.github.global.enumeration.State
 import com.ufab.github.global.listener.OnItemClickedListener
@@ -32,9 +33,9 @@ class HomeFragmentViewModel
 
      //var homedata:LiveData<PagedList<HomeModel>>
 
-    var homedatas:MutableLiveData<List<HomeModel>>
+    var homedatas:MutableLiveData<HomeModel2>
 
-     var homedata:ArrayList<ArrayList<HomeModel>>
+     var homedata:ArrayList<HomeModel2>
 
     var refreshState: MutableLiveData<State> = MutableLiveData()
 
@@ -44,7 +45,7 @@ class HomeFragmentViewModel
 
     init {
 
-
+        onSignInClicked()
         val config = PagedList.Config.Builder().setPageSize(NEWS_PAGE_SIZE)
             .setInitialLoadSizeHint(NEWS_PAGE_SIZE * 2).setEnablePlaceholders(false).build()
         homedata=ArrayList()
@@ -52,11 +53,11 @@ class HomeFragmentViewModel
         homedatas= MutableLiveData()
 
         DebugLog.d("DATA12345",homedata.toString())
-        Log.d("homedata",homedata.toString())
+        Log.d("homedata", homedatas.value?.get(1)?.assignees_url.toString())
 
 
 
-onSignInClicked()
+
         /*homedata = LivePagedListBuilder<Int, HomeModel>(homesDataSourceFactory, config).build()
 
         DebugLog.d("state12345",HomeDataSource::state.toString())*/
@@ -66,6 +67,7 @@ onSignInClicked()
 
 
     fun onSignInClicked() {
+        Log.d("experiment123","onsigninclickede")
             compositeDisposable.add(
                 homeRepository.gethome()
                     .subscribeOn(schedulerProvider.io())
@@ -76,20 +78,28 @@ onSignInClicked()
 
     }
 
-    private fun OnSignInSucess(): (List<HomeModel>) -> Unit = { homemodel ->
+    private fun OnSignInSucess(): (HomeModel2) -> Unit = { homemodel ->
+        Log.d("experiment12345","onsigninsucess")
+        homedatas.value = homemodel
+
+        Log.d("experiment12345","onsigninsucess")
+
+
 
 
     }
 
     private fun OnSignInFail(): (Throwable) -> Unit = { error ->
+        Log.d("errrror",error.message)
+        Log.d("experiment12345","onsigninsucess")
     }
-    private fun onSucess(t1: List<HomeModel>?) {
+/*    private fun onSucess(t1: List<HomeModel>?) {
         Log.d("onsucess",t1.toString())
 
 
         t1?.let { homedatas.value =it }
 
-    }
+    }*/
 
     private fun onFailure(action: Throwable?) {
         Log.d("onfailure",action.toString())
@@ -152,7 +162,7 @@ onSignInClicked()
     }*/
 
 
-    fun setupHome(data:List<HomeModel>){
+   /* fun setupHome(data:List<HomeModel>){
         var hashmap = HashMap<String, ArrayList<HomeModel>>()
         for (homeData in data!!) {
             if (hashmap.containsKey(homeData.title)) {
@@ -175,7 +185,7 @@ onSignInClicked()
         }
         Log.d("homedata",homedata.toString())
 
-    }
+    }*/
 
 
    /* private fun listIsEmpty(): Boolean {

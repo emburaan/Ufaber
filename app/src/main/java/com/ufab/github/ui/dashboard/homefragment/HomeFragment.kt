@@ -51,23 +51,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
         bind.viewModel=viewModel
         bind.lifecycleOwner = viewLifecycleOwner
 
-
+        registerRecycler()
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         registerBaseObserver(viewModel)
-        registerHomeObserver()
+       // registerHomeObserver()
     }
 
+/*
     private fun registerHomeObserver(){
         viewModel.homedatas.observe(viewLifecycleOwner, Observer {
             setupHome(it)
         })
-        //registerRecycler()
+        registerRecycler()
 
     }
+*/
 
   /*  override fun setupHome(key: String) {
         var view = LayoutInflater.from(context).inflate(R.layout.item_home_category,null)
@@ -79,6 +81,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
         recyclerView.adapter = homeAdapter
         linearLayout_home.addView(view)    }*/
 
+/*
       fun setupHome(data:List<HomeModel>){
         var hashmap = HashMap<String, ArrayList<HomeModel>>()
         for (homeData in data!!) {
@@ -115,11 +118,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
 
 
     }
-   /* private fun registerRecycler(){
+*/
+    private fun registerRecycler(){
         homeAdapter.homeFragmentViewModel=viewModel
-        rv_recyclerview.adapter=homeAdapter
+        git.adapter=homeAdapter
 
-    }*/
+    }
 
 
 

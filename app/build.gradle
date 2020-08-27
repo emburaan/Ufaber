@@ -117,16 +117,16 @@ android {
     productFlavors {
         product1 {
             dimension "version"
-            buildConfigField("String", "BASE_URL", '"https://9c77e30a-8bcb-4df8-930c-b17dae3c0154.mock.pstmn.io/"')
+            buildConfigField("String", "BASE_URL", '"https://api.github.com/"')
         }
         product2 {
             dimension "version"
-            buildConfigField("String", "BASE_URL", '"https://9c77e30a-8bcb-4df8-930c-b17dae3c0154.mock.pstmn.io/"')
+            buildConfigField("String", "BASE_URL", '"https://api.github.com/"')
         }
 
         product3 {
             dimension "version"
-            buildConfigField("String", "TEST_URL", '"https://9c77e30a-8bcb-4df8-930c-b17dae3c0154.mock.pstmn.io/"')
+            buildConfigField("String", "TEST_URL", '"https://api.github.com/"')
         }
     }
 }
