@@ -1,5 +1,6 @@
 package com.ufab.github.global.helper
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
@@ -24,6 +25,7 @@ class ViewModelFactory @Inject constructor(private val creators: Map<Class<out V
         try {
             return creator.get() as T
         } catch (e: Exception) {
+            Log.d("exception",e.toString())
             throw RuntimeException(e)
         }
     }

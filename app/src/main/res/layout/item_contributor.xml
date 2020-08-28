@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="placeholder"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="picasso"
+            type="com.squareup.picasso.Picasso" />
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="imageurl"
+            type="String" />
+        <variable
+            name="onItemClickedListner"
+            type="com.ufab.github.global.listener.OnItemClickedListener" />
+    </data>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -8,6 +26,9 @@
         android:layout_width="@dimen/_70sdp"
         android:layout_height="@dimen/_70sdp"
         android:scaleType="fitXY"
+        app:imageUrl="@{imageurl}"
+        app:placeholder="@{placeholder}"
+        picasso="@{picasso}"
         android:src="@drawable/profile"
         />
     <TextView
@@ -15,6 +36,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/_10ssp"
         android:gravity="center"
-        android:text="name"/>
+        android:text="@{name}"/>
 
 </LinearLayout>
+</layout>

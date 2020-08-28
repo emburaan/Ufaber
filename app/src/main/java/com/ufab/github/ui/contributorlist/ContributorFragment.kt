@@ -12,8 +12,10 @@ import com.ufab.github.base.BaseFragment
 import com.ufab.github.databinding.FragmentContributorBinding
 import com.ufab.github.databinding.FragmentHomeBinding
 import com.ufab.github.global.helper.ViewModelFactory
+import com.ufab.github.ui.contributorlist.adapter.ContributorAdapter
 import com.ufab.github.ui.dashboard.homefragment.HomeFragment
 import com.ufab.github.ui.dashboard.homefragment.HomeFragmentInterface
+import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 
@@ -22,6 +24,8 @@ class ContributorFragment
     ContributorFragmentInterface {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+    @Inject
+    lateinit var contributeAdapter:ContributorAdapter
     private var mContributorViewModel: ContributorViewModel? = null
     override val bindingVariable: Int
         get() = BR.viewModel
@@ -58,6 +62,8 @@ class ContributorFragment
     }
 
     private fun registerRecycler() {
+        contributeAdapter.contributorViewModel=viewModel
+        git.adapter=contributeAdapter
 
     }
 }

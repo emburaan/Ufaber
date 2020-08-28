@@ -5,6 +5,7 @@ import com.ufab.github.ui.contributorlist.ContributorFragment
 import com.ufab.github.ui.contributorlist.ContributorModule
 import com.ufab.github.ui.dashboard.homefragment.HomeFragment
 import com.ufab.github.ui.dashboard.homefragment.HomeFragmentModule
+import com.ufab.github.ui.reposotries.RepositoriesModule
 import com.ufab.github.ui.reposotries.ReposotriesFragment
 
 import dagger.Module
@@ -21,7 +22,7 @@ abstract class ContributeFragmentModule {
     abstract fun contributeorFragment(): ContributorFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ContributorModule::class])
+    @ContributesAndroidInjector(modules = [RepositoriesModule::class])
     abstract fun repositoriesFragment(): ReposotriesFragment
 
 

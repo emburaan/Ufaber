@@ -1,6 +1,6 @@
-package com.ufab.github.data.model.home
+package com.ufab.github.data.model.repo
 
-data class HomeModel2Item(
+data class RepoModelItem(
     val archive_url: String,
     val assignees_url: String,
     val blobs_url: String,

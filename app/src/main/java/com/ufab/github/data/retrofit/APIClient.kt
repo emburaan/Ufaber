@@ -1,6 +1,5 @@
 package com.ufab.github.data.retrofit
 
-import com.ufab.github.data.model.home.HomeModel
 import com.ufab.github.data.model.home.HomeModel2
 import com.ufab.github.data.model.news.News
 import com.ufab.github.data.model.user.ProfileResponse
@@ -29,6 +28,6 @@ interface APIClient {
     fun gethome():Single<List<HomeModel>>*/
 
     @GET("repositories")
-    fun gethome():Single<HomeModel2>
+    fun gethome():Single<List<HomeModel2>>
 
 }

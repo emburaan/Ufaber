@@ -3,10 +3,14 @@ package com.ufab.github.base
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -306,6 +310,27 @@ abstract class BaseFragment<T : ViewDataBinding?, V : BaseAndroidViewModel<*>?> 
         activity?.let { (it as BaseActivity<*,*>).hideProgressBar() }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        viewDataBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        mRootView = viewDataBinding!!.root
+        return mRootView
+    }
+
+
+        override fun onViewCreated(
+            view: View,
+            savedInstanceState: Bundle?
+        ) {
+            super.onViewCreated(view, savedInstanceState)
+            viewDataBinding!!.setVariable(bindingVariable, mViewModel)
+            viewDataBinding!!.lifecycleOwner = this
+            viewDataBinding!!.executePendingBindings()
+        }
+
 
     /**
      * startActivity to class
@@ -322,4 +347,6 @@ abstract class BaseFragment<T : ViewDataBinding?, V : BaseAndroidViewModel<*>?> 
     open fun navigate(navigationTo: com.ufab.github.global.helper.Navigation) {
 
     }
+
+
 }
