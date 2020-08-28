@@ -24,11 +24,7 @@ abstract class BaseAndroidViewModel<N>(
 
 
     //application context for resource access only
-    protected val applicationContext = application.applicationContext!!;
-
-
-
-
+    protected val applicationContext = application.applicationContext!!
 
 
     //Navigator

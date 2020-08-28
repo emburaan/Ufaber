@@ -7,6 +7,13 @@
             name="viewModel"
             type="com.ufab.github.ui.contributorlist.ContributorViewModel" />
 
+        <variable
+            name="placeholder"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="picasso"
+            type="com.squareup.picasso.Picasso" />
 
         <variable
             name="imageurl"
@@ -53,6 +60,9 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/profile"
+                        app:imageUrl="@{imageurl}"
+                        app:placeholder="@{placeholder}"
+                        picasso="@{picasso}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 

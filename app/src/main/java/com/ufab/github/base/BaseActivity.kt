@@ -70,8 +70,8 @@ abstract class BaseActivity< T : ViewDataBinding?, V : BaseAndroidViewModel<*>?>
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         overridePendingTransition(R.anim.slide_in_right, R.anim.non)
         performDataBinding()
 
@@ -239,7 +239,7 @@ abstract class BaseActivity< T : ViewDataBinding?, V : BaseAndroidViewModel<*>?>
                     okActionBlock,
                     cancelActionBlock,
                     dismissActionBlock
-            );
+            )
         }
     }
 

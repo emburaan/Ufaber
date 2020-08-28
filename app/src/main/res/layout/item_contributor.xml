@@ -16,10 +16,16 @@
         <variable
             name="onItemClickedListner"
             type="com.ufab.github.global.listener.OnItemClickedListener" />
+
+
+        <variable
+            name="empty"
+            type="String" />
     </data>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:onClick="@{(view)->onItemClickedListner.onItemClicked(empty,empty,name)}"
     android:padding="@dimen/_20ssp"
     android:orientation="vertical">
     <ImageView

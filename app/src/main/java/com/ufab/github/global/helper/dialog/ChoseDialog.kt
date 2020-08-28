@@ -20,7 +20,7 @@ class ChoseDialog private constructor(
                 ok: String, cancel: String, okActionBlock: (() -> Unit)? = null, cancelActionBlock: (() -> Unit)? = null,
                 dismissActionBlock: (() -> Unit)? = null
         ): ChoseDialog {
-            return ChoseDialog(title, message, ok, cancel, okActionBlock, cancelActionBlock, dismissActionBlock);
+            return ChoseDialog(title, message, ok, cancel, okActionBlock, cancelActionBlock, dismissActionBlock)
         }
 
         fun build(
@@ -39,7 +39,7 @@ class ChoseDialog private constructor(
                     okActionBlock,
                     cancelActionBlock,
                     dismissActionBlock
-            );
+            )
         }
     }
 }

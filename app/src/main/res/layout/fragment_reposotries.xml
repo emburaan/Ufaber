@@ -6,6 +6,18 @@
         <variable
             name="viewModel"
             type="com.ufab.github.ui.reposotries.RepositoriesFragmentViewModel" />
+
+        <variable
+            name="placeholder"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="picasso"
+            type="com.squareup.picasso.Picasso" />
+
+        <variable
+            name="imageurl"
+            type="String" />
     </data>
 
 <LinearLayout
@@ -36,8 +48,12 @@
             android:scaleType="fitXY"
             android:layout_gravity="center"
             android:src="@drawable/profile"
+            app:imageUrl="@{imageurl}"
+            app:placeholder="@{placeholder}"
+            picasso="@{picasso}"
             />
         <TextView
+            android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -60,9 +76,11 @@
             android:padding="@dimen/_8sdp"
             android:textSize="@dimen/_12ssp"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_repolist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:itemCount="10"
+            android:background="@color/gray_cloud"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_homepage"
             />

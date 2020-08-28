@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [APIClientModule::class, PicassoModule::class, PreferencesModule::class, DatabaseModule::class])
-class ApplicationModule() {
+class ApplicationModule {
 
     @Provides
     @ApplicationScope

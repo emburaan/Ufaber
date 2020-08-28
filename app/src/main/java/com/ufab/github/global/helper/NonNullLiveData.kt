@@ -14,15 +14,8 @@ class NonNullLiveData<T : Any>(initValue: T) : MutableLiveData<T>() {
         return super.getValue()!!
     }
 
-    override fun setValue(value: T) {
-        super.setValue(value)
-    }
-
     fun observe(owner: LifecycleOwner, body: (T) -> Unit) {
         observe(owner, Observer<T> { t -> body(t!!) })
     }
 
-    override fun postValue(value: T) {
-        super.postValue(value)
-    }
 }

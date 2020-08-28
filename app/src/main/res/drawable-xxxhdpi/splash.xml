@@ -3,6 +3,6 @@
 <item
     android:drawable="@drawable/bg_screen">
 </item>
-    <item android:drawable="@drawable/ic_gym"
+    <item android:drawable="@drawable/ic_github_logo"
         android:gravity="center"/>
 </layer-list>

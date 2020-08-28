@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.ufab.github.R
 import com.ufab.github.data.model.repo.RepoModel
+import com.ufab.github.data.model.repo.RepoModelItem
 import com.ufab.github.databinding.ItemHomepageBinding
+import com.ufab.github.databinding.ItemRepoBinding
 import com.ufab.github.global.listener.OnItemClickedListener
 
-class RepoViewHolder (private val binding: ItemHomepageBinding, private val onItemClickedListener: OnItemClickedListener, private val picasso: Picasso):
+class RepoViewHolder (private val binding: ItemRepoBinding, private val onItemClickedListener: OnItemClickedListener, private val picasso: Picasso):
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(data: RepoModel){
+    fun bind(data: List<RepoModelItem>){
 
         binding.picasso=picasso
         binding.title=data.get(adapterPosition).name
@@ -25,7 +27,7 @@ class RepoViewHolder (private val binding: ItemHomepageBinding, private val onIt
     companion object{
         fun create(parent: ViewGroup, onItemClickedListener: OnItemClickedListener, picasso: Picasso):RepoViewHolder{
             val inflater= LayoutInflater.from(parent.context)
-            val binding= ItemHomepageBinding.inflate(inflater,parent,false)
+            val binding= ItemRepoBinding.inflate(inflater,parent,false)
             return RepoViewHolder(binding,onItemClickedListener,picasso)
         }
     }

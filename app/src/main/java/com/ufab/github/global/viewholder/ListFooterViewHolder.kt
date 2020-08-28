@@ -13,7 +13,7 @@ class ListFooterViewHolder(private val binding: ItemListFooterBinding, private v
     fun bind(status: State) {
         binding.state = status
         binding.retryListener = retryListener
-        binding.executePendingBindings();
+        binding.executePendingBindings()
     }
 
     companion object {

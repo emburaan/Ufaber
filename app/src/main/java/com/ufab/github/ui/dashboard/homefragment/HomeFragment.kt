@@ -2,6 +2,7 @@ package com.ufab.github.ui.dashboard.homefragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -25,6 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
     lateinit var viewModelFactory: ViewModelFactory
     @Inject
     lateinit var homeAdapter:HomeAdapter2
+
 
 
     private lateinit var navController: NavController
@@ -51,6 +53,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mHomeFragmentViewModel?.setNavigator(this)
+    }
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         registerBaseObserver(viewModel)
@@ -76,10 +84,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
 
     private fun registerHomeObserver() {
         viewModel.homedatas.observe(viewLifecycleOwner, Observer {
+
             homeAdapter.setData(it)
         })
     }
 
+    override fun onError(key: String) {
+
+
+}
 
 
 }

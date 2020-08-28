@@ -66,18 +66,18 @@ val Any.TAG: String
 
 
 @BindingAdapter(value = ["imageUrl", "placeholder", "picasso"], requireAll = true)
-fun setImageUrl(imageView: ImageView, imageUrl: String, placeHolder: Drawable, picasso: Picasso) {
+fun setImageUrl(imageView: ImageView?, imageUrl: String?, placeHolder: Drawable?, picasso: Picasso?) {
     if (TextUtils.isEmpty(imageUrl)) {
-        imageView.setImageDrawable(placeHolder);
+        imageView?.setImageDrawable(placeHolder)
     } else {
-        when (imageView.scaleType) {
-            ImageView.ScaleType.CENTER_CROP -> picasso.load(imageUrl).fit().centerCrop().placeholder(
-                    placeHolder
-            ).into(imageView)
-            ImageView.ScaleType.CENTER_INSIDE -> picasso.load(imageUrl).fit().centerInside().placeholder(
-                    placeHolder
-            ).into(imageView)
-            else -> picasso.load(imageUrl).placeholder(R.mipmap.ic_launcher).into(imageView)
+        when (imageView?.scaleType) {
+            ImageView.ScaleType.CENTER_CROP -> picasso?.load(imageUrl)?.fit()?.centerCrop()?.placeholder(
+                    placeHolder!!
+            )?.into(imageView)
+            ImageView.ScaleType.CENTER_INSIDE -> picasso?.load(imageUrl)?.fit()?.centerInside()?.placeholder(
+                    placeHolder!!
+            )?.into(imageView)
+            else -> picasso?.load(imageUrl)?.placeholder(R.mipmap.ic_launcher)?.into(imageView)
         }
     }
 }

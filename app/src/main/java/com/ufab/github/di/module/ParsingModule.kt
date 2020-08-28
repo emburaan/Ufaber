@@ -13,6 +13,6 @@ class ParsingModule {
     @Provides
     @ApplicationScope
     fun moshi(): Moshi {
-        return Moshi.Builder().add(KotlinJsonAdapterFactory()).build();
+        return Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     }
 }

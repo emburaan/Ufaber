@@ -21,7 +21,7 @@ import javax.inject.Named
 
 
 private const val NEWS_PAGE_SIZE = 10
-private const val FIRST_PAGE = 0;
+private const val FIRST_PAGE = 0
 
 
 class HomeFragmentViewModel
@@ -73,13 +73,11 @@ constructor(
 
     private fun OnSignInSucess(): (List<HomeModel2>) -> Unit = { homemodel ->
         homedatas.value = homemodel
-        Log.d("sucess1234", "onsigninsucess")
 
 
     }
 
     private fun OnSignInFail(): (Throwable) -> Unit = { error ->
-
     }
 
 

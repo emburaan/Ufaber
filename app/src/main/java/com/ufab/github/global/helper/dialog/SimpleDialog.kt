@@ -19,7 +19,7 @@ class SimpleDialog private constructor(
                 actionBlock: (() -> Unit)? = null,
                 dismissActionBlock: (() -> Unit)? = null
         ): SimpleDialog {
-            return SimpleDialog(title, message, actionBlock, dismissActionBlock);
+            return SimpleDialog(title, message, actionBlock, dismissActionBlock)
         }
 
         fun build(
@@ -27,7 +27,7 @@ class SimpleDialog private constructor(
                 actionBlock: (() -> Unit)? = null, dismissActionBlock: (() -> Unit)? = null
         ): SimpleDialog {
             val title = titleId?.let { context.getString(it) }
-            return SimpleDialog(title, context.getString(messageId), actionBlock, dismissActionBlock);
+            return SimpleDialog(title, context.getString(messageId), actionBlock, dismissActionBlock)
         }
     }
 }

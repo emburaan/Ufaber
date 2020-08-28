@@ -17,6 +17,7 @@ class ContributorViewHolder(private val binding:ItemContributorBinding,private v
     fun bind(data:List<ContributorModelItem>){
         binding.picasso=picasso
         binding.name=data.get(adapterPosition).login
+        binding.empty=""
         binding.onItemClickedListner=onItemClickedListener
         binding.imageurl=data.get(adapterPosition).avatar_url
         binding.placeholder= AppCompatResources.getDrawable(binding.root.context, R.mipmap.ic_launcher)

@@ -8,11 +8,11 @@ import android.widget.RelativeLayout
 
 
 class CustomClickableLayout : RelativeLayout {
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val rectF = RectF(0f, 0f, width.toFloat(), height.toFloat())

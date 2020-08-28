@@ -39,6 +39,7 @@
     <string name="full_name">full name</string>
     <string name="email">email</string>
     <string name="githubexplorer">Github Explorer</string>
+    <string name="error_something_went_wrong">Something went wrong</string>
 
 
 </resources>
