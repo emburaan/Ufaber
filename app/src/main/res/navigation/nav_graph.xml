@@ -3,10 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/contributorFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ufab.github.ui.dashboard.homefragment.HomeFragment"
         android:label="HomeFragment"
         />
+    <fragment
+        android:id="@+id/contributorFragment"
+        android:name="com.ufab.github.ui.contributorlist.ContributorFragment"
+        android:label="ContributorFragment" />
 </navigation>

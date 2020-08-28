@@ -1,10 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ufab.github.ui.reposotries.RepositoriesFragmentViewModel" />
+    </data>
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray_cloud"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.ufab.github.ui.reposotries.ReposotriesFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -60,3 +68,4 @@
             />
     </LinearLayout>
 </LinearLayout>
+</layout>
