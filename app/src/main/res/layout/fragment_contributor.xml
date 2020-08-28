@@ -6,6 +6,11 @@
         <variable
             name="viewModel"
             type="com.ufab.github.ui.contributorlist.ContributorViewModel" />
+
+
+        <variable
+            name="imageurl"
+            type="String" />
     </data>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,7 +57,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/tv_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -62,11 +67,12 @@
                         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
                     <TextView
+                        android:id="@+id/tv_project"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        app:layout_constraintStart_toStartOf="@+id/textView"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -90,6 +96,7 @@
                         android:text="Description" />
 
                     <TextView
+                        android:id="@+id/tv_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/_8sdp"
@@ -116,11 +123,12 @@
                         android:padding="@dimen/_8sdp"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/git"
+                    android:id="@+id/contributor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="@dimen/_4sdp"
+                    app:data="@{viewModel.contributordata}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     tools:itemCount="10"
                     app:spanCount="3"

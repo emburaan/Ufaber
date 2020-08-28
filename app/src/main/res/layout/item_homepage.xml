@@ -17,6 +17,9 @@
             name="imageurl"
             type="String" />
         <variable
+            name="desctiption"
+            type="String" />
+        <variable
             name="onItemClickedListner"
             type="com.ufab.github.global.listener.OnItemClickedListener" />
     </data>
@@ -27,7 +30,7 @@
     android:elevation="@dimen/_20sdp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:onClick="@{(view)->onItemClickedListner.onItemClicked(title)}"
+    android:onClick="@{(view)->onItemClickedListner.onItemClicked(desctiption,project,title)}"
     android:layout_margin="@dimen/_12sdp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -20,6 +20,7 @@ class HomeViewHolder(private val binding:ItemHomepageBinding,private val onItemC
         binding.project=home.get(adapterPosition).fullName
         binding.onItemClickedListner=onItemClickedListener
         binding.imageurl=home.get(adapterPosition).owner.avatarUrl
+        binding.desctiption=home.get(adapterPosition).description
         binding.placeholder=AppCompatResources.getDrawable(binding.root.context, R.mipmap.ic_launcher)
     }
 

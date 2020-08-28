@@ -20,10 +20,12 @@ constructor(
 )
     : BaseAndroidViewModel<RepositoriesFragmentInterface>(application,disposable,schedulerProvider),
     OnItemClickedListener, RetryListener {
-    override fun onItemClicked(value: String) {
 
-    }
 
     override fun onRetry() {
+    }
+
+    override fun onItemClicked(data: String, fullname: String,name: String) {
+
     }
 }

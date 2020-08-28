@@ -1,5 +1,6 @@
 package com.ufab.github.data.retrofit
 
+import com.ufab.github.data.model.contributor.ContributorModelItem
 import com.ufab.github.data.model.home.HomeModel2
 import com.ufab.github.data.model.news.News
 import com.ufab.github.data.model.user.ProfileResponse
@@ -29,5 +30,11 @@ interface APIClient {
 
     @GET("repositories")
     fun gethome():Single<List<HomeModel2>>
+
+    @GET("repos/{repo_name}/contributors?page=1&?access_token=5466a1f2c52115a70ce26caa995fa1ff6ce217e4")
+    fun getcontributor(@Path(value = "repo_name",encoded = true) repo_name:String):Single<List<ContributorModelItem>>
+
+    @GET("users/mojombo/repos")
+    fun getUser():Single<List<HomeModel2>>
 
 }

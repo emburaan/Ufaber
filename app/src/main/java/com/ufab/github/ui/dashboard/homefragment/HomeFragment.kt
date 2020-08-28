@@ -1,14 +1,22 @@
 package com.ufab.github.ui.dashboard.homefragment
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import com.ufab.github.BR
 import com.ufab.github.R
 import com.ufab.github.base.BaseFragment
 import com.ufab.github.databinding.FragmentHomeBinding
+import com.ufab.github.global.helper.Navigation
 import com.ufab.github.global.helper.ViewModelFactory
+import com.ufab.github.global.utils.ExtraKeys
+import com.ufab.github.ui.contributorlist.ContributorFragment
 import javax.inject.Inject
+import javax.inject.Named
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),HomeFragmentInterface {
@@ -17,6 +25,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
     lateinit var viewModelFactory: ViewModelFactory
     @Inject
     lateinit var homeAdapter:HomeAdapter2
+
+
+    private lateinit var navController: NavController
     private var mHomeFragmentViewModel: com.ufab.github.ui.dashboard.homefragment.HomeFragmentViewModel? = null
     private var mHomeFragmentbinding: FragmentHomeBinding? = null
     override val bindingVariable: Int
@@ -30,7 +41,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding,HomeFragmentViewModel>(),H
             return mHomeFragmentViewModel!!
         }
 
-
+    override fun navigate(navigationTo: Navigation) {
+        when (navigationTo.navigateTo) {
+            ContributorFragment::class -> {
+                var bundle = bundleOf("description" to navigationTo.extra[0])
+                val actionTask1ToTask11 = HomeFragmentDirections.actionHomeFragmentToContributorFragment(navigationTo.extra[0] as String,navigationTo.extra[1] as String,navigationTo.extra[2] as String)
+                findNavController()?.navigate(actionTask1ToTask11)
+            }
+        }
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -7,11 +7,13 @@ import com.ufab.github.di.ViewModelKey
 import com.ufab.github.di.module.CompositeModule
 import com.ufab.github.di.module.RepositoryModule
 import com.ufab.github.di.module.SchedulerModule
+import com.ufab.github.global.utils.ExtraKeys
 import com.ufab.github.ui.contributorlist.adapter.ContributorAdapter
 import com.ufab.github.ui.dashboard.homefragment.HomeFragmentViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import javax.inject.Named
 
 @Module(includes = [RepositoryModule::class, CompositeModule::class, SchedulerModule::class])
 
@@ -28,4 +30,5 @@ class ContributorModule {
     fun provideContributorAdapter(picasso: Picasso, viewModel: ContributorViewModel): ContributorAdapter {
         return ContributorAdapter(picasso,viewModel)
     }
+
 }

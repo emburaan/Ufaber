@@ -7,9 +7,12 @@ import com.ufab.github.di.module.CompositeModule
 import com.ufab.github.di.module.RepositoryModule
 import com.ufab.github.di.module.SchedulerModule
 import com.squareup.picasso.Picasso
+import com.ufab.github.global.utils.ExtraKeys
+import com.ufab.github.ui.contributorlist.ContributorFragment
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import javax.inject.Named
 
 
 @Module(includes = [RepositoryModule::class, CompositeModule::class, SchedulerModule::class])
@@ -33,4 +36,5 @@ class HomeFragmentModule {
     fun provideHomeCachedAdapter2(picasso: Picasso,viewModel: HomeFragmentViewModel):HomeAdapter2{
         return HomeAdapter2(picasso,viewModel)
     }
+
 }

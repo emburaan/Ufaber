@@ -4,12 +4,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.ufab.github.data.model.contributor.ContributorModel
+import com.ufab.github.data.model.contributor.ContributorModelItem
 import com.ufab.github.global.listener.DataAdapterListener
 import com.ufab.github.global.viewholder.ContributorViewHolder
 import com.ufab.github.ui.contributorlist.ContributorViewModel
 
-class ContributorAdapter(private val picasso: Picasso,var contributorViewModel: ContributorViewModel):RecyclerView.Adapter<ContributorViewHolder>(),DataAdapterListener<ContributorModel> {
-    private val data = ContributorModel()
+class ContributorAdapter(private val picasso: Picasso,var contributorViewModel: ContributorViewModel):RecyclerView.Adapter<ContributorViewHolder>(),DataAdapterListener<List<ContributorModelItem>> {
+    private val data = ArrayList<ContributorModelItem>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContributorViewHolder {
         return ContributorViewHolder.create(parent,contributorViewModel,picasso)     }
 
@@ -21,8 +22,13 @@ class ContributorAdapter(private val picasso: Picasso,var contributorViewModel: 
         holder.bind(data)
     }
 
-    override fun setData(contributor: ContributorModel) {
+
+
+    override fun setData(contro: List<ContributorModelItem>) {
         data.clear()
-        data.addAll(contributor)
-        notifyDataSetChanged()     }
+        data.addAll(contro)
+        notifyDataSetChanged()
+    }
+
+
 }

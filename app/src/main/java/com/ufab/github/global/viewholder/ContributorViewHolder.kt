@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.ufab.github.R
 import com.ufab.github.data.model.contributor.ContributorModel
+import com.ufab.github.data.model.contributor.ContributorModelItem
 import com.ufab.github.databinding.ItemContributorBinding
 import com.ufab.github.databinding.ItemHomepageBinding
 import com.ufab.github.global.listener.OnItemClickedListener
 
 class ContributorViewHolder(private val binding:ItemContributorBinding,private val onItemClickedListener: OnItemClickedListener, private val picasso: Picasso):
     RecyclerView.ViewHolder(binding.root) {
-    fun bind(data:ContributorModel){
+    fun bind(data:List<ContributorModelItem>){
         binding.picasso=picasso
         binding.name=data.get(adapterPosition).login
         binding.onItemClickedListner=onItemClickedListener
